@@ -1,0 +1,6 @@
+%h1 Hello
+%p= @question.question_text
+
+%ul
+  - @question.answer_options.each do |answer_option|
+    %li= answer_option.answer_text
