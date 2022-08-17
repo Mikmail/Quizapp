@@ -1,6 +1,12 @@
-%h1 Hello
-%p= @question.question_text
+.bg-gray-600
+  %h1
+    Quiz
 
-%ul
-  - @question.answer_options.each do |answer_option|
-    %li= answer_option.answer_text
+  %p= @question.question_text
+
+
+  = form_with url: questions_path, model: @question do |question_form|
+    - @question.answer_options.each do |answer_option|
+      = question_form.radio_button :answer_option, answer_option.id
+      = answer_option.answer_text
+      %br

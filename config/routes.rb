@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'assessments/index'
-  root "assessments#index"
-  get "/assessments", to: "assessments#index"
+  root "start_page#index"
+  get 'questions/show'
+  get "/questions", to: "questions#show"
 
   resources :quizzes do
     resources :questions

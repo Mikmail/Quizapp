@@ -1,0 +1,4 @@
+.bg-gray-600
+  = form_with model: @quiz do |form|
+    = form.text_field :title
+    = link_to "Start", "http://localhost:3000/quizzes/1/questions/1"
