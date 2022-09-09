@@ -1,12 +1,16 @@
-.bg-gray-600
-  %h1
-    Quiz
+%html.bg-emerald-400
+  .grid.place-items-center.m-40.border-2.border-black.rounded-md
+    %h1
+      Quiz week #{Time.now.strftime("%-W")}
 
-  %p= @question.question_text
+    .m-5
+      %p= @question.question_text
 
-
-  = form_with url: questions_path, model: @question do |question_form|
-    - @question.answer_options.each do |answer_option|
-      = question_form.radio_button :answer_option, answer_option.id
-      = answer_option.answer_text
-      %br
+    = form_with url: quiz_questions_path, model: @question do |form|
+      - @question.answer_options.each do |answer_option|
+        .text-bold
+          = form.radio_button :answer_option, answer_option.id, name: "radiob1", class: ""
+          = answer_option.answer_text
+        %br
+      .w-10
+        = form.submit "Neste", url: quiz_questions_path, class: "bg-green-500 rounded-md border-2 border-black text-white-600"

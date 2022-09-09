@@ -1,4 +1,9 @@
-.bg-gray-600
-  = form_with model: @quiz do |form|
-    = form.text_field :title
-    = link_to "Start", "http://localhost:3000/quizzes/1/questions/1"
+%html.bg-emerald-400
+  %h1.grid.place-items-center.mt-40
+    Quiz week #{Time.now.strftime("%-W")}
+  .grid.place-items-center.m-40.h-500
+    = form_with model: @quiz do |form|
+      .shadow-md.outline-none
+        = form.text_field :title, placeholder: "Your name"
+      .bg-green-500.border-2.border-black.rounded-md.shadow-md.m-5.text-center
+        = link_to "Start", "http://localhost:3000/quizzes/1/questions/1"
